@@ -19,17 +19,30 @@ namespace Bulldozer
         public bool moves { get; set; }
         public string color { get; set; }
     }
+
+    public class Human: GeneralObject
+    {
+        public Human()
+        { 
+        }
+        public string name { get; set; }
+    }
     
 
 
-    public class Man : GeneralObject
+    public class Man : Human
     {
         public Man()
         {
         }
+        
+    }
 
-        public string name { get; set; }
-
+    public class Woman : Human
+    {
+        public Woman()
+        {
+        }
     }
         
     
