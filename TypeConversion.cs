@@ -7,11 +7,14 @@ namespace TypeConversion
   {
     static void Main(string[] args)
     {
-      byte b = 1;
-      int i = b;
+      // works
+      var number = "1234";
+      var i = Convert.ToInt32(number);
 
-      int i = 1;
-      byte b = i;
+      // doesn't work
+      var number = "1234";
+      byte b = Convert.ToByte(number);
+
       Console.WriteLine(i);
       Console.ReadLine();
     }
