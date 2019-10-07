@@ -7,16 +7,20 @@ namespace TypeConversion
   {
     static void Main(string[] args)
     {
-      // works
-      var number = "1234";
-      var i = Convert.ToInt32(number);
+      try
+      {
+        var number = "1234";
+        byte b = Convert.ToByte(number);
 
-      // doesn't work
-      var number = "1234";
-      byte b = Convert.ToByte(number);
+        Console.WriteLine(b);
 
-      Console.WriteLine(i);
-      Console.ReadLine();
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("The number could not be converted to a byte.");
+        Console.ReadLine();
+      }
+
     }
   }
 }
