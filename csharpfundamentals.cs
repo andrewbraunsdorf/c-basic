@@ -2,16 +2,6 @@ using system;
 
 namespace CSharpFundamentals
 {
-    public class Person
-    {
-      public string FirstName;
-      public string LastName;
-
-      public void Introduce()
-      {
-        System.Console.WriteLine("My name is " + FirstName + " " + LastName);
-      }
-    }
     class Program
     {
         public static Main (string[] args)
@@ -19,7 +9,11 @@ namespace CSharpFundamentals
           var hugo = new Person();
           hugo.FirstName = "Hugo";
           hugo.LastName = "James";
-          hugo.Introduce()
+          hugo.Introduce();
+
+          Calculator calculator = new Calculator();
+          var result = calculator.Add(1, 2);
+          System.Console.WriteLine(result);
         }
     }
 
