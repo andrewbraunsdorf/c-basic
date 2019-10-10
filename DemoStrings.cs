@@ -7,10 +7,10 @@ namespace DemoStrings
         static void Main(string[] args)
         { 
             var firstName = "Hugo";
+            var lastName = "James";
+            var fullName = firstName + " " + lastName;
 
-            // same thing
-            String lastNAme = "James";
-            string myName = "Hugo";
+            var myFullName = string.Format("My name is {0} {1}", firstName, lastName);
         }
     }
 }
