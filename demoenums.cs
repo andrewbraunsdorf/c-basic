@@ -18,6 +18,19 @@ namespace CSharpFundamentals
         {
             var method = ShippingMethod.Express;
             Console.WriteLine((int)method);
+            
+
+            var methodId = 3;
+            Console.WriteLine((ShippingMethod)methodId);
+
+            Console.WriteLine(method.ToString());
+            // console.writeline always converts method to a string to display it
+            // if not using cw have to declare to string
+            Console.WriteLine(method);
+
+            var methodName = "Express";
+            var shippingMethod = (ShippingMethod) Enum.Parse(typeof(ShippingMethod), methodName);
+            
             Console.ReadLine();
         }
     }
