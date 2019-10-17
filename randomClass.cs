@@ -10,10 +10,12 @@ namespace CSharpFundamentals
   {
     static void Main(string[] args)
     {
-      char[] buffer = new char[10];
-
       var random = new Random();
-      for (var i = 0; i < 10; i++)
+
+      const int passwordLength = 10;
+
+      char[] buffer = new char[passwordLength];
+      for (var i = 0; i < passwordLength; i++)
       {
         buffer[i] = (char)('a' + random.Next(0, 26));
       }
