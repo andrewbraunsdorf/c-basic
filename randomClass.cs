@@ -22,7 +22,7 @@ namespace CSharpFundamentals
 
       // strings are immutable
 
-      Console.WriteLine(buffer);
+      Console.WriteLine(password);
       //Console.WriteLine((int)'a');
 
       Console.ReadLine();
