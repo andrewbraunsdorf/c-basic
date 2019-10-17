@@ -10,19 +10,20 @@ namespace CSharpFundamentals
   {
     static void Main(string[] args)
     {
+      char[] buffer = new char[10];
+
       var random = new Random();
       for (var i = 0; i < 10; i++)
       {
-        Console.WriteLine(random.Next());
-        Console.WriteLine((char)random.Next(1, 10));
-        // casting to character which allows users to pick a character
-        Console.Write((char)random.Next(97, 122));
-
-        Console.Write((char)('a' + random.Next(0, 26)));
+        buffer[i] = (char)('a' + random.Next(0, 26));
       }
 
-      Console.WriteLine();
-      Console.WriteLine((int)'a');
+      var password = new string(buffer);
+
+      // strings are immutable
+
+      Console.WriteLine(buffer);
+      //Console.WriteLine((int)'a');
 
       Console.ReadLine();
     }
