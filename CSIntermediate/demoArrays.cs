@@ -26,7 +26,7 @@ namespace CSharpFundamentals
         Console.WriteLine(n);
 
 
-      // Copy
+      // Copy()
       int[] another = new int[3];
       Array.Copy(numbers, another, 3);
       Console.WriteLine("Effect of Copy()");
@@ -34,13 +34,13 @@ namespace CSharpFundamentals
         Console.WriteLine(n);
 
 
-      // Sort
+      // Sort()
       Array.Sort(numbers);
       Console.WriteLine("Effect of Sort()");
       foreach (var n in numbers)
         Console.WriteLine(n);
 
-      // Reverse
+      // Reverse()
       Array.Reverse(numbers);
       Console.WriteLine("Effect of Reverse()");
       foreach (var n in numbers)
