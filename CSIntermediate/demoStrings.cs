@@ -28,6 +28,16 @@ namespace CSharpFundamentals
 
       Console.WriteLine(fullName.Replace("Hugo", "Hue"));
 
+      if (String.IsNullOrEmpty(null))
+        Console.WriteLine("Invalid");
+
+      if (String.IsNullOrEmpty(""))
+        Console.WriteLine("Invalid");
+
+      if (String.IsNullOrEmpty(" "))
+        Console.WriteLine("Invalid");
+      if (String.IsNullOrEmpty(" ".Trim()))
+        Console.WriteLine("Invalid");
 
       Console.ReadLine();
     }
