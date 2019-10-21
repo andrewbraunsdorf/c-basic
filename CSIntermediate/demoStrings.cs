@@ -22,6 +22,13 @@ namespace CSharpFundamentals
       Console.WriteLine("First name: " + firstName);
       Console.WriteLine("Last name: " + lastName);
 
+      var names = fullName.Split(' ');
+      Console.WriteLine("First name: " + names[0]);
+      Console.WriteLine("Last name: " + names[1]);
+
+      Console.WriteLine(fullName.Replace("Hugo", "Hue"));
+
+
       Console.ReadLine();
     }
   }
