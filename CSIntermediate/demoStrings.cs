@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CSharpFundamentals
 {
@@ -23,6 +27,14 @@ namespace CSharpFundamentals
       Console.WriteLine("Last name: " + names[1]);
 
       Console.WriteLine(fullName.Replace("Hugo", "Hue"));
+
+      var str = "25";
+      var age = Convert.ToByte(str);
+      Console.WriteLine(age);
+
+      float price = 29.95f;
+      Console.WriteLine(price.ToString("C"));
+
 
       if (String.IsNullOrWhiteSpace(" "))
         Console.WriteLine("Invalid");
