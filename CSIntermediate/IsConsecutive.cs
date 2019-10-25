@@ -7,7 +7,7 @@ namespace Exercises
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Enter numbers seperated by hyphen");
+      Console.WriteLine("Enter numbers seperated by hyphen (ex. 9-10-11-12");
       var input = Console.ReadLine();
 
       var numbers = new List<int>();
@@ -27,7 +27,6 @@ namespace Exercises
           break;
         }
       }
-
 
       Console.WriteLine("Consecutive");
       Console.ReadLine();
