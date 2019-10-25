@@ -23,7 +23,17 @@ namespace Exercises
         return;
       }
 
+      var hour = Convert.ToInt32(compareTime[0]);
+      var minute = Convert.ToInt32(compareTime[1]);
 
+      if (hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59)
+      {
+        Console.WriteLine("Valid Time");
+      }
+      else
+      {
+        Console.WriteLine("Invalid Time");
+      }
       Console.ReadLine();
     }
   }
