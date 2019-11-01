@@ -7,9 +7,9 @@ namespace CSharpFundamentals
     {
         public static void Main(string[] args)
         {
-            var numbers = new List<int>();
+            var numbers = new List<int>{ 1, 2, 3, 4, 5, 6};
             // return 3 smallest numbers
-            var smallests = GetSmallests(null, 1);
+            var smallests = GetSmallests(numbers, 3);
 
             foreach (var number in smallests)
             {
