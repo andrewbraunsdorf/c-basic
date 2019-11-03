@@ -7,7 +7,21 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            
+            // throws an exception... format exception, then you have to use try catch block
+            var number = int.Parse("abc");
+            //int number;
+            // TryParse does not throw an exception
+            var result = int.TryParse("abc", out number);
+            if (result)
+            {
+                Console.WriteLine(number);
+            }
+            else
+            {
+                Console.WriteLine("Conversion Failed");
+            }
+
+            Console.ReadLine();
         }
 
         static void UseParams()
