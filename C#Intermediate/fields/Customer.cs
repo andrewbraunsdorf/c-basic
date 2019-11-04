@@ -7,7 +7,7 @@ namespace Fields
         public int Id;
         public string Name;
         // no matter what constructor called the list has a already been initialized
-        public List<Order> Orders = new List<Order>();
+        public readonly List<Order> Orders = new List<Order>();
 
 
 
@@ -20,6 +20,12 @@ namespace Fields
             : this(id)
         {
             this.Name = name;
+        }
+
+        public void Promote()
+        {
+            //Orders = new List<Order>();
+            // ...
         }
     }
 }
