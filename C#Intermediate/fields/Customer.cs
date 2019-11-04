@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 
-
 namespace Fields
 {
     public class Customer
@@ -22,16 +21,11 @@ namespace Fields
         {
             this.Name = name;
         }
-    }
 
-    public class Order
-    {
-
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public void Promote()
         {
+            Orders = new List<Order>();
+            // ...
         }
     }
 }
