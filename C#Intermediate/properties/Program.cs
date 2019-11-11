@@ -2,13 +2,24 @@ using System;
 
 namespace Properties
 {
-    class Program
+    public class Person
     {
-        static void Main(string[] args)
+        // created a constructor for Birthdate to use in Program.cs
+        public Person(DateTime birthdate)
         {
-          var person = new Person();
-          person.Birthdate = new DateTime(1982, 1, 1);
-          System.Console.WriteLine(person.Age);
+            Birthdate = birthdate;
+        }
+        // can only set with if you add private in front of set
+        public DateTime Birthdate { get; private set; }
+        public int Age
+        {
+            get
+            {
+                var timeSpan = DateTime.Today - Birthdate;
+                var years = timeSpan.Days / 365;
+
+                return years;
+            }
         }
     }
 }
