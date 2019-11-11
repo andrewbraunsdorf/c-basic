@@ -4,19 +4,21 @@ namespace Properties
 {
     public class Person
     {
-        private DateTime _birthddate;
+      private DateTime _birthddate;
 
-        public DateTime Birthdate { get; set; }
-    }
-    public int Age
-    {
-      get
+      public DateTime Birthdate { get; set; }
+
+      public int Age
       {
-        var timeSpan = DateTime.Today - Birthdate;
-        var years = timeSpan.Days/365;
+        get
+        {
+          var timeSpan = DateTime.Today - Birthdate;
+          var years = timeSpan.Days/365;
 
-        return years;
+          return years;
+        }
       }
     }
+    
     
 }

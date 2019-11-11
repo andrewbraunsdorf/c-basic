@@ -9,7 +9,7 @@ namespace Properties
     //     }
     public class Person
     {
-        
+        // auto-implemented property
         private DateTime _birthddate;
 
         public DateTime Birthdate
