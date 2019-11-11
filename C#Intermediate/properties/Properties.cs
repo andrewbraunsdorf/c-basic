@@ -2,8 +2,14 @@ using System;
 
 namespace Properties
 {
+    // // auto-implemented properties
+    //     public class Person
+    //     {
+    //         public DateTime Birthdate { get; set; }
+    //     }
     public class Person
     {
+        
         private DateTime _birthddate;
 
         public DateTime Birthdate
