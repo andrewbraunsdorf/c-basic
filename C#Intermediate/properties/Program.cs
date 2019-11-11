@@ -4,13 +4,15 @@ namespace Properties
 {
     public class Person
     {
+         // can only set with if you add private in front of set
+        public DateTime Birthdate { get; private set; }
+
         // created a constructor for Birthdate to use in Program.cs
         public Person(DateTime birthdate)
         {
             Birthdate = birthdate;
         }
-        // can only set with if you add private in front of set
-        public DateTime Birthdate { get; private set; }
+
         public int Age
         {
             get
