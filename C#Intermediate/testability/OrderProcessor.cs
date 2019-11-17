@@ -5,21 +5,26 @@ namespace Testability
     public class OrderProcessor
     
     {
-        private readonly ShippingCalculator _shippingCalculator;
-        
-        public OrderProcessor()  // constructor
+        private readonly IShippingCalculator _shippingCalculator;
+
+        // constructor
+        public OrderProcessor(IShippingCalculator shippingCalculator)  
         {
-            _shippingCalculator = new ShippingCalculator();
+            //use constructor
+            _shippingCalculator = shippingCalculator;
         }
+
         public void Process(Order order)
         {
-            if (order.IsShipped)  // defensive programming is good
+            // defensive programming, throw exception
+            if (order.IsShipped)  
                 throw new InvalidOperationException("This order is already shipped");
 
             order.Shipment = new Shipment
             {
                 Cost = _shippingCalculator.CalculateShipping(order),
-                ShippingDate = DateTime.Today.AddDays(1)  // ship day after submitted
+                // ship day after submitted
+                ShippingDate = DateTime.Today.AddDays(1)  
             };
         }
     }
