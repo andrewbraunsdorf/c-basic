@@ -1,16 +1,18 @@
-namespace Extensibility
+using System;
+
+namespace InterfacesAndExtensibility
 {
-  public class ConsoleLogger : ILogger
-  {
-    public void LogError(string message)
+    public class ConsoleLogger : ILogger
     {
-      ConsoleLogger.ForegroundColor = ConsoleColor.Red;
-      Console.WriteLine(message);
+        public void LogError(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+        }
+        public void LogInfo(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+        }
     }
-    public void LogInfo(string message)
-    {
-      ConsoleLogger.ForegroundColor = ConsoleColor.Green;
-      Console.WriteLine(message);
-    }
-  }
 }
