@@ -6,7 +6,9 @@ namespace Polymorphism
     {
         static void Main(string[] args)
         {
-
+            var encoder = new VideoEncoder();
+            encoder.Encode(new Video());
+            Console.ReadLine();
         }
     }
 }
