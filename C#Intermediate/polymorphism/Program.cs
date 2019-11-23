@@ -7,7 +7,8 @@ namespace Polymorphism
         static void Main(string[] args)
         {
             var encoder = new VideoEncoder();
-            encoder.Encode(new Video());
+            encoder.RegisterNotificationChannel(new MailNotificationChannel());
+            encoder.RegisterNotificationChannel(new SmsNotificationChannel());
             Console.ReadLine();
         }
     }
