@@ -28,6 +28,14 @@ namespace Stopwatch
                 }
             }
         }
+        public void Stop(DateTime stop)
+        {
+            if (running)
+            {
+                EndTime = stop;
+                running = false;
+            }
+        }
     }
     class Program
     {
