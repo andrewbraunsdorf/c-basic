@@ -36,6 +36,13 @@ namespace Stopwatch
                 running = false;
             }
         }
+
+        public TimeSpan GetInterval()
+        {
+            var duration = EndTime - StartTime;
+
+            return duration;
+        }
     }
     class Program
     {
