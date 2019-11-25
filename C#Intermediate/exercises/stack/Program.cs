@@ -53,7 +53,22 @@ namespace Stack
     {
         static void Main(string[] args)
         {
+            Stack _stack = new Stack();
 
+            var start = 0;
+            var max = 5;
+
+            for (var i = start; i <= max; i++)
+            {
+                _stack.Push(i);
+            }
+
+            for (var i = start; i <= max; i++)
+            {
+                Console.WriteLine(_stack.Pop());
+            }
+
+            Console.ReadLine();
         }
     }
 }
