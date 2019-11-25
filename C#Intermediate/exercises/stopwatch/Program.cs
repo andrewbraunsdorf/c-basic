@@ -48,7 +48,22 @@ namespace Stopwatch
     {
         static void Main(string[] args)
         {
+            var stopwatch = new StopWatch();
 
+            for (var i = 0; i < 2; i++)
+            {
+                stopwatch.Start(DateTime.Now);
+
+                for (var j = 0; j <= 1000; j++)
+                {
+                    Thread.Sleep(1);
+                }
+
+                stopwatch.Stop(DateTime.Now);
+
+            }
+
+            Console.ReadLine();
         }
     }
 }
