@@ -5,7 +5,7 @@ namespace Stack
 {
     public class Stack
     {
-        private  List<object> list = new List<object>();
+        private readonly List<object> list = new List<object>();
 
         public void Push(object obj)
         {
@@ -15,17 +15,7 @@ namespace Stack
             }
 
             list.Add(obj);
-            int elements = list.Count;
 
-            if (elements > 1)
-            {
-                for (int i = elements - 1; i > 0; i--)
-                {
-                    list[i] = list[i - 1];
-                }
-
-                list[0] = obj;
-            }
         }
 
         public object Pop()
