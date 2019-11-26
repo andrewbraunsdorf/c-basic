@@ -25,16 +25,11 @@ namespace Stack
                 throw new InvalidOperationException("There are no objects in the stack yet.");
             }
 
-            var toReturn = list[0];
+            var index = list.Count - 1;
+            var toReturn = list[index];
 
-            var elements = list.Count;
 
-            for (int i = 0; i < elements -1; i++)
-            {
-                list[i] = (int)list[i + 1];
-            }
-
-            list.Remove(elements - 1);
+            list.RemoveAt(index);
 
             return toReturn;
         }
