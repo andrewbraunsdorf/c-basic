@@ -33,6 +33,10 @@ namespace Stack
 
             return toReturn;
         }
+        public void Clear()
+        {
+            list.Clear();
+        }
     }
     class Program
     {
