@@ -51,8 +51,8 @@ namespace Stack
             {
                 stack.Push(i);
             }
-            // to get a no objects in stack exception
-            stack.Clear();
+            // // to get a no objects in stack exception
+            // stack.Clear();
 
             for (var i = start; i <= max; i++)
             {
