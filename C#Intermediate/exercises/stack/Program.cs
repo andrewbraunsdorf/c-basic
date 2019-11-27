@@ -42,22 +42,24 @@ namespace Stack
     {
         static void Main(string[] args)
         {
-            Stack _stack = new Stack();
+            var stack = new Stack();
 
-            var start = 0;
-            var max = 5;
+            var start = -1;
+            var max = 99;
 
             for (var i = start; i <= max; i++)
             {
-                _stack.Push(i);
+                stack.Push(i);
             }
 
             for (var i = start; i <= max; i++)
             {
-                Console.WriteLine(_stack.Pop());
+                Console.WriteLine(stack.Pop());
             }
 
             Console.ReadLine();
         }
+
+        
     }
 }
