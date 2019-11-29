@@ -10,12 +10,50 @@ namespace WorkflowEngine
         {
             WorkFlowEngine workflow = new WorkFlowEngine();
             workflow.AddWorkFlowObject(new VideoUploader());
+            workflow.AddWorkFlowObject(new CallWebService());
+            workflow.AddWorkFlowObject(new SendEmail());
+            workflow.AddWorkFlowObject(new ChangeStatus());
+
+            workflow.Run();
+
             Console.ReadLine();
         }
     }
     interface IIWorkFlow
     {
         void Execute();
+    }
+
+    class VideoUploader : IIWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Uploading a video");
+        }
+    }
+
+    class CallWebService : IIWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Calling web service");
+        }
+    }
+
+    class SendEmail : IIWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Sending an email");
+        }
+    }
+
+    class ChangeStatus : IIWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("status changed");
+        }
     }
 
     class WorkFlowEngine
