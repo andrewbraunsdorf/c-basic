@@ -19,9 +19,16 @@ namespace WorkflowEngine
             Console.ReadLine();
         }
     }
-    interface IIWorkFlow
+    public interface ITask
     {
         void Execute();
+    }
+
+    public interface IWorkflow
+    {
+        void Add(ITask task);
+        void Remove(ITask task);
+        IEnumerable<ITask> GetTasks();
     }
 
     class VideoUploader : IIWorkFlow
@@ -56,25 +63,19 @@ namespace WorkflowEngine
         }
     }
 
-    class WorkFlowEngine
+
+
+
+public class WorkFlowEngine
     {
-        private List<IIWorkFlow> Object;
 
-        public WorkFlowEngine()
+        public void Run(IWorkflow workflow)
         {
-            Object = new List<IIWorkFlow>();
-        }
-       public void AddWorkFlowObject(IIWorkFlow iObject)
-        {
-            Object.Add(iObject);
-        }
-
-        public void Run()
-        {
-            foreach (var eachObject in Object)
+            foreach (ITask I in workflow.GetTasks())
             {
-                eachObject.Execute();
+
+                I.Execute();
+                
             }
         }
     }
-}
