@@ -1,24 +1,26 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace WorkflowEngine
 {
     class Program
     {
         static void Main(string[] args)
         {
-            WorkFlowEngine workflow = new WorkFlowEngine();
-            workflow.AddWorkFlowObject(new VideoUploader());
-            workflow.AddWorkFlowObject(new CallWebService());
-            workflow.AddWorkFlowObject(new SendEmail());
-            workflow.AddWorkFlowObject(new ChangeStatus());
+            var workflow = new WorkFlow();
+            workflow.Add(new VideoUploader());
+            workflow.Add(new CallWebService());
+            workflow.Add(new SendEmail());
+            workflow.Add(new ChangeStatus());
 
-            workflow.Run();
+            var engine = new WorkFlowEngine();
+            engine.Run(workflow);
 
             Console.ReadLine();
+
         }
     }
+
     public interface ITask
     {
         void Execute();
