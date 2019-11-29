@@ -9,9 +9,13 @@ namespace WorkflowEngine
         static void Main(string[] args)
         {
             WorkFlowEngine workflow = new WorkFlowEngine();
-
+            workflow.AddWorkFlowObject(new VideoUploader());
             Console.ReadLine();
         }
+    }
+    interface IIWorkFlow
+    {
+        void Execute();
     }
 
     class WorkFlowEngine
@@ -22,7 +26,10 @@ namespace WorkflowEngine
         {
             Object = new List<IIWorkFlow>();
         }
-
+       public void AddWorkFlowObject(IIWorkFlow iObject)
+        {
+            Object.Add(iObject);
+        }
 
         public void Run()
         {
