@@ -13,10 +13,18 @@ namespace Arena
         // # of sides on dice
         private int sidesCount;
 
+        
+        
         // Constructor
         public RollingDie()
         {
             sidesCount = 6;
+            random = new Random();
+        }
+
+        public RollingDie(int sidesCount)
+        {
+            this.sidesCount = sidesCount;
             random = new Random();
         }
 
@@ -25,14 +33,29 @@ namespace Arena
         {
             return sidesCount;
         }
+        // Rolls a die
+        public int Roll()
+        {
+            // dont create a random number generator in the method returning the random number.
+            // it creates a a new generator for every random number and #s would never be random
+            // .Next( first int is inclusive, second parameter is exclusive. 
+            return random.Next(1, sidesCount + 1);
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
             RollingDie die = new RollingDie();
-
+            RollingDie die2 = new RollingDie(10);
             Console.WriteLine(die.GetSidesCount());
+            Console.WriteLine(die.Roll());
+            Console.WriteLine(die.Roll());
+            Console.WriteLine(die2.GetSidesCount());
+            Console.WriteLine(die2.Roll());
+            Console.WriteLine(die2.Roll());
+
+
             Console.ReadLine();
         }
     }
