@@ -37,7 +37,7 @@ namespace CardGameApp
 
             foreach (var card in cards)
             {
-                Console.WriteLine(card.Suit + card.Value);
+                Console.WriteLine(" {0} {1}", card.Suit, card.Value);
             }
 
             return cards;
