@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,19 +42,33 @@ namespace Arena
             // .Next( first int is inclusive, second parameter is exclusive. 
             return random.Next(1, sidesCount + 1);
         }
+
+        public override string ToString()
+        {
+            return String.Format("Rolling a die with {0} sides", sidesCount);
+        }
     }
+
+   
     class Program
     {
         static void Main(string[] args)
         {
             RollingDie die = new RollingDie();
             RollingDie die2 = new RollingDie(10);
-            Console.WriteLine(die.GetSidesCount());
-            Console.WriteLine(die.Roll());
-            Console.WriteLine(die.Roll());
-            Console.WriteLine(die2.GetSidesCount());
-            Console.WriteLine(die2.Roll());
-            Console.WriteLine(die2.Roll());
+            Console.WriteLine(die);
+            for (int i = 0; i <10; i++)
+                Console.WriteLine(die.Roll() + " ");
+            //Console.WriteLine(die.GetSidesCount());
+            //Console.WriteLine(die.Roll());
+            //Console.WriteLine(die.Roll());
+
+            Console.WriteLine(die2);
+            for (int i = 0; i < 10; i++)
+                Console.WriteLine(die2.Roll() + " ");
+            //Console.WriteLine(die2.GetSidesCount());
+            //Console.WriteLine(die2.Roll());
+            //Console.WriteLine(die2.Roll());
 
 
             Console.ReadLine();
