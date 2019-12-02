@@ -42,9 +42,28 @@ namespace CardGameApp
                 Console.WriteLine(card.DisplayName);
                 //Console.WriteLine(" {0} {1}", card.Suit, card.Value);
             }
-
             return cards;
+        }
+         private static Queue<Card> Shuffle(Queue<Card> cards)
+        {
+            List<Card> transformedCards = cards.ToList();
+            Random r = new Random();
 
+            for (int i = 0; i < transformedCards.Count; i++)
+            {
+                int k = r.Next(i, transformedCards.Count);
+                Card temp = transformedCards[k];
+                transformedCards[k] = transformedCards[i];
+                transformedCards[i] = temp;
+            }
+
+            Queue<Card> shuffleCards = new Queue<Card>();
+            foreach (var card in transformedCards)
+            {
+                shuffleCards.Enqueue(card);
+                Console.WriteLine(card.DisplayName);
+            }
+            return shuffleCards;
         }
 
         private string GetShortName(int value, Suit suit)
