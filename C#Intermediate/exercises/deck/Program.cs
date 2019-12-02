@@ -52,8 +52,6 @@ namespace CardGameApp
         {
             Deck deck = new Deck();
             deck.CreateCards();
-            //Player player = new Player();
-            //player.Deal(card);
             Console.ReadLine();
         }
     }
