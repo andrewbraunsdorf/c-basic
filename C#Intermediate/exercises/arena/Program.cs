@@ -14,8 +14,6 @@ namespace Arena
         // # of sides on dice
         private int sidesCount;
 
-        
-        
         // Constructor
         public RollingDie()
         {
