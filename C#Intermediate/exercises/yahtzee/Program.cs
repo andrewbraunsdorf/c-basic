@@ -22,7 +22,6 @@ namespace Yahtzee
         {
             this.sidesCount = sidesCount;
             this.value = this.Roll();
-            //random = new Random();
         }
 
         public int Roll()
@@ -42,7 +41,6 @@ namespace Yahtzee
                 PlayersDice.Add(new RollingDie());
 
             }
-            // string choice = UserInput();
             PlayersDice[0].Roll();
             Output();
         }
@@ -64,16 +62,6 @@ namespace Yahtzee
         {
             Game game = new Game();
             game.Play();
-
-            //RollingDie die = new RollingDie();
-
-            //for (int i = 0; i < 10; i++)
-            //    Console.WriteLine(die.Roll());
-
-
-            //Console.ReadLine();
-
-
         }
     }
 }
