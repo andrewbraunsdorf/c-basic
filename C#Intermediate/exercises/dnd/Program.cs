@@ -22,9 +22,25 @@ namespace DnD
 
     class Program
     {
+      private static void StartGame()
+        {
+            int modifier = 10;
+            int armorClass = 20;
+
+            Die die1 = new Die(20);
+
+            int rollNumber = die1.GetRollnum();
+            Console.WriteLine("Initial Roll: " + rollNumber);
+
+            if (rollNumber == 1)
+            {
+                Console.WriteLine("Critical Miss!!!");
+                Console.ReadLine();
+                return;
+            }
         static void Main(string[] args)
         {
-          
+
         }
     }
 }
