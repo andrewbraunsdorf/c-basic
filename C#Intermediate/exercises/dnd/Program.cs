@@ -62,9 +62,13 @@ namespace DnD
                 HitPoints(1);
                 Console.ReadLine();
             }
-        static void Main(string[] args)
+        private static void HitPoints(int numDice)
         {
-
+            if (numDice == 1)
+            {
+                Console.WriteLine("Your armor was no match for that attack!");
+            }
+            List<int> damageDiceArr = new List<int>();
         }
     }
 }
