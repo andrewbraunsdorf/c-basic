@@ -56,6 +56,12 @@ namespace DnD
                 Console.ReadLine();
                 HitPoints(2);
             }
+
+            else
+            {
+                HitPoints(1);
+                Console.ReadLine();
+            }
         static void Main(string[] args)
         {
 
