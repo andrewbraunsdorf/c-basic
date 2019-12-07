@@ -34,7 +34,7 @@ namespace DnD
 
             if (rollNumber == 1)
             {
-                Console.WriteLine("Critical Miss!!!");
+                Console.WriteLine("Critical Miss!!! You Rolled a 1!!!");
                 Console.ReadLine();
                 return;
             }
@@ -45,7 +45,7 @@ namespace DnD
 
             if (damageDealt <= armorClass && rollNumber < 20)
             {
-                Console.WriteLine("Critical Miss!!!");
+                Console.WriteLine("Missed Attack!");
                 Console.ReadLine();
                 return;
             }
