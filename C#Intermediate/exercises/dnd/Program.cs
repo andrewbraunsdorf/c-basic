@@ -38,6 +38,24 @@ namespace DnD
                 Console.ReadLine();
                 return;
             }
+
+                        int damageDealt = rollNumber + modifier;
+            Console.WriteLine("The initial roll number is " + rollNumber + " and the modifier is " + modifier + ". Your total damage dealt is " + (modifier + rollNumber));
+            Console.WriteLine("Your Armor Class is " + armorClass);
+
+            if (damageDealt <= armorClass && rollNumber < 20)
+            {
+                Console.WriteLine("Critical Miss!!!");
+                Console.ReadLine();
+                return;
+            }
+
+            if (rollNumber == 20)
+            {
+                Console.WriteLine("Critical Hit!!!");
+                Console.ReadLine();
+                HitPoints(2);
+            }
         static void Main(string[] args)
         {
 
