@@ -71,7 +71,16 @@ namespace DnD
                 Console.WriteLine("Your armor was no match for that attack!");
             }
             List<int> damageDiceArr = new List<int>();
+            
+            int totalHitPoints = 0;
+            foreach (var dieValue in damageDiceArr)
+            {
+                Console.WriteLine("Damage Roll: " + dieValue);
+                totalHitPoints += dieValue;
+            }
 
+            Console.WriteLine("Hit! " + totalHitPoints + " Hit Points Dealt!!");
+            Console.ReadLine();
             
         }
 }
