@@ -39,9 +39,9 @@ namespace War
         }
     }
 
-    public static class DeckCreator
+    public class DeckCreator
     {
-        public static Queue<Card> CreateCards()
+        public Queue<Card> CreateCards()
         {
             Queue<Card> cards = new Queue<Card>();
             for (int i = 2; i <= 14; i++)
@@ -77,6 +77,7 @@ namespace War
             foreach (var card in transformedCards)
             {
                 shuffleCards.Enqueue(card);
+                Console.WriteLine(card.DisplayName);
             }
 
             return shuffleCards;
@@ -107,7 +108,7 @@ namespace War
                 valueDisplay = "A";
             }
 
-            return valueDisplay + Enum.GetName(typeof(Suit), suit)[0];
+            return valueDisplay + Enum.GetName(typeof(Suit), suit);
         }
     }
 
@@ -117,6 +118,9 @@ namespace War
     {
         static void Main(string[] args)
         {
+            DeckCreator deckCreator = new DeckCreator();
+            deckCreator.CreateCards();
+            Console.ReadLine();
         }
     }
 }
