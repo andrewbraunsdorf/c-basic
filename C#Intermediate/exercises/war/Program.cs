@@ -1,4 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace War
 {
@@ -34,6 +38,29 @@ namespace War
             }
         }
     }
+
+    public static class DeckCreator
+    {
+        public static Queue<Card> CreateCards()
+        {
+            Queue<Card> cards = new Queue<Card>();
+            for (int i = 2; i <= 14; i++)
+            {
+                foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+                {
+                    cards.Enqueue(new Card()
+                    {
+                        Suit = suit,
+                        Value = i,
+                        DisplayName = GetShortName(i, suit)
+                    });
+                }
+            }
+            return Shuffle(cards);
+        }
+    }
+
+    
 
     class Program
     {
