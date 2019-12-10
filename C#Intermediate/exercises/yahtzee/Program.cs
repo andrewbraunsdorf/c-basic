@@ -1,32 +1,29 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Yahtzee
 {
     class RollingDie
     {
-        private readonly Random random = new Random();
-        private int sidesCount;
+        static readonly Random random = new Random();
+        private readonly int sidesCount;
         public int value;
 
         public RollingDie()
         {
             sidesCount = 6;
-            this.value = this.Roll();
+            this.value = 1;
         }
 
         public RollingDie(int sidesCount)
         {
             this.sidesCount = sidesCount;
-            this.value = this.Roll();
+            this.value = 1;
         }
 
-        public int Roll()
+        public void Roll()
         {
-            return random.Next(1, sidesCount + 1);
+            this.value = random.Next(1, sidesCount + 1);
         }
     }
 
@@ -39,12 +36,13 @@ namespace Yahtzee
             for (int rollDice = 0; rollDice < 5; rollDice++)
             {
                 PlayersDice.Add(new RollingDie());
+                PlayersDice[rollDice].Roll();
 
             }
-            PlayersDice[0].Roll();
+
+            
             Output();
         }
-
 
         public void Output()
         {
@@ -60,8 +58,11 @@ namespace Yahtzee
     {
         static void Main(string[] args)
         {
+            
             Game game = new Game();
             game.Play();
+
+            Console.ReadLine();
         }
     }
 }
