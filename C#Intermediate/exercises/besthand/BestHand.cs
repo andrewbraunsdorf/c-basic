@@ -88,6 +88,15 @@ namespace Besthand
         }
     }
 
+    class Player
+    {
+        public int Score { get; set; }
+
+        public Player()
+        {
+            this.Score = 0;
+        }
+    }
     
 
     class Program
