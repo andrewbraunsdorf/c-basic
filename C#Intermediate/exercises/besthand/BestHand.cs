@@ -28,13 +28,14 @@ namespace Besthand
         {
             DeckList = new List<Card>();
             CreateDeck();
+            ShuffleDeck(rand);
         }
 
         public void CreateDeck()
         {
-            for (int suitNumber = 0; suitNumber < 4; suitNumber++)
+            for (var suitNumber = 0; suitNumber < 4; suitNumber++)
             {
-                for (int valueNumber = 1; valueNumber < 14; valueNumber++)
+                for (var valueNumber = 1; valueNumber < 14; valueNumber++)
                 {
                     DeckList.Add(new Card() {Suit = suitNumber, Face = valueNumber });
                     if (valueNumber <= 9)
@@ -46,6 +47,19 @@ namespace Besthand
                         DeckList[DeckList.Count - 1].Value = 10;
                     }
                 }
+            }
+        }
+
+        public void ShuffleDeck(Random rand)
+        {
+            int n = DeckList.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rand.Next(n + 1);
+                Card card = DeckList[k];
+                DeckList[k] = DeckList[n];
+                DeckList[n] = card;
             }
         }
         
