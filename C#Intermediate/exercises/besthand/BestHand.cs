@@ -97,7 +97,31 @@ namespace Besthand
             this.Score = 0;
         }
     }
-    
+        class BestHandGame
+    {
+        Random rand;
+        Player player1;
+        Player player2;
+        Deck firstDeck;
+
+        public BestHandGame()
+        {
+            rand = new Random();
+            player1 = new Player();
+            player2 = new Player();
+            firstDeck = new Deck(rand);
+        }
+
+        public void PlayBestHand()
+        {
+            List<Card> player1Hand = firstDeck.DrawHand(52);
+
+            foreach (var item in player1Hand)
+            {
+                Console.WriteLine(item.Suit + " " + item.Value + " " + item.Face);
+            }
+        }
+    }
 
     class Program
     {
