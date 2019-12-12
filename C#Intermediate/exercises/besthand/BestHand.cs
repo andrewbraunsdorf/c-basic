@@ -160,7 +160,22 @@ namespace Besthand
 
             Console.WriteLine();
             Console.WriteLine("Player 2 Score: {0}", player2.Score);
+            
+            // Remove Facecards if in both hands
+            for (var counterPlayer1Hand = 0; counterPlayer1Hand < player1Hand.Count; counterPlayer1Hand++)
+            {
+                for (var counterPlayer2Hand = 0; counterPlayer2Hand < player2Hand.Count; counterPlayer2Hand++)
+                {
+                    if (counterPlayer2Hand < player1Hand.Count && player1Hand[counterPlayer1Hand].Value == 10 && player2Hand[counterPlayer2Hand].Value == 10 && player1Hand[counterPlayer1Hand].Face ==
+                        player2Hand[counterPlayer2Hand].Face)
+                    {
+                        player1Hand.RemoveAt(counterPlayer1Hand);
+                        player2Hand.RemoveAt(counterPlayer2Hand);
+                        
 
+                    }
+                }
+            }
         }
     }
 
