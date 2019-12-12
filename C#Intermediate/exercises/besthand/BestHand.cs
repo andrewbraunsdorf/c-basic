@@ -188,31 +188,21 @@ namespace Besthand
 
                 if (item.Face >= 10)
                     player1RoyalCards++;
-
-                if (player1RoyalCards >= 2)
-                {
-                    //player1.Score += player1RoyalCards - 1;
-                    player1.Score += player1RoyalCards;
-                }
-                else
-                {
-                    continue;
-                }
+            }
+            if (player1RoyalCards >= 2)
+            {
+                //player1.Score += player1RoyalCards - 1;
+                player1.Score += (player1RoyalCards - 1) * 5;
             }
             int player2RoyalCards = 0;
             foreach (var item2 in player2Hand)
             {
                 if (item2.Face >= 10)
                     player2RoyalCards++;
-
-                if (player2RoyalCards >= 2)
-                {
-                    player2.Score += player2RoyalCards - 1;
-                }
-                else
-                {
-                    continue;
-                }
+            }
+            if (player2RoyalCards >= 2)
+            {
+                player2.Score += (player2RoyalCards - 1) * 5;
             }
 
             //// Matches
