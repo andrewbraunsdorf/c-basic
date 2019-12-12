@@ -204,30 +204,31 @@ namespace Besthand
             {
                 player2.Score += (player2RoyalCards - 1) * 5;
             }
+            // Matches
+            int player1Matches = 0;
+            for (int i = 0; i < player1Hand.Count; i++)
+            {
+                for (int j = i + 1; j < player1Hand.Count; j++)
+                {
+                    if (j < player1Hand.Count && player1Hand[i].Face == player1Hand[j].Face)
+                    {
+                        player1Matches += 1;
+                        player1Hand.RemoveAt(j);
+                        continue;
+                    }
+                    else if (j < player2Hand.Count && player2Hand[i].Face == player2Hand[j].Face)
+                    {
+                        player2.Score += 2;
 
-            //// Matches
-            //int player1Matches = 0;
-            //for (int i = 0; i < player1Hand.Count; i++)
-            //{
-            //    for (int j = i + 1; j < player1Hand.Count; j++)
-            //    {
-            //        if (j < player1Hand.Count && player1Hand[i].Face == player1Hand[j].Face)
-            //        {
-            //            player1Matches += 1;
-            //            player1Hand.RemoveAt(j);
-            //            continue;
-            //        }
-            //        else if (j < player2Hand.Count && player2Hand[i].Face == player2Hand[j].Face)
-            //        {
-            //            player2.Score += 1;
+                        player2Hand.RemoveAt(j);
+                        continue;
+                    }
+                    else
+                        continue;
+                }
+            }
 
-            //            player2Hand.RemoveAt(j);
-            //            continue;
-            //        }
-            //        else
-            //            continue;
-            //    }
-            //}
+            player1.Score += (player1Matches *2);
 
             // reprinting values to see post removal
             Console.WriteLine("Suit\t" + "Card\t" + "Value");
