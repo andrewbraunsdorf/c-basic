@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -140,10 +141,10 @@ namespace Besthand
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
 
-            foreach (var item in player1Hand)
-            {
-                player1.Score += item.Value;
-            }
+            //foreach (var item in player1Hand)
+            //{
+            //    player1.Score += item.Value;
+            //}
 
             Console.WriteLine();
             Console.WriteLine("Player 1 Score: {0}", player1.Score);
@@ -153,14 +154,15 @@ namespace Besthand
             {
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
-            foreach (var item in player2Hand)
-            {
-                player2.Score += item.Value;
-            }
+            //foreach (var item in player2Hand)
+            //{
+            //    player2.Score += item.Value;
+            //}
 
             Console.WriteLine();
             Console.WriteLine("Player 2 Score: {0}", player2.Score);
-            
+
+
             // Remove Facecards if in both hands
             for (var counterPlayer1Hand = 0; counterPlayer1Hand < player1Hand.Count; counterPlayer1Hand++)
             {
@@ -176,7 +178,66 @@ namespace Besthand
                     }
                 }
             }
+
+            //Calculate Scores
+            // Royal cards
+            int player1RoyalCards = 0;
+            foreach (var item in player1Hand)
+            {
+                
+                if (item.Value >= 10)
+                    player1RoyalCards++;
+
+                if (player1RoyalCards >= 2)
+                {
+                    player1.Score += player1RoyalCards - 1;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            int player2RoyalCards = 0;
+            foreach (var item in player2Hand)
+            {
+                if (item.Face >= 10)
+                    player2RoyalCards++;
+
+                if (player2RoyalCards >= 2)
+                {
+                    player1.Score += player2RoyalCards - 1;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            // reprinting values to see post removal
+            Console.WriteLine("Suit\t" + "Card\t" + "Value");
+            foreach (var item in player1Hand)
+            {
+                Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
+            }
+
+            
+
+            Console.WriteLine();
+            Console.WriteLine("Player 1 Score: {0}", player1.Score);
+
+            Console.WriteLine();
+            foreach (var item in player2Hand)
+            {
+                Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Player 2 Score: {0}", player2.Score);
+
         }
+
+        
+        
     }
 
 
