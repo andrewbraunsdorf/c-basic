@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,10 +14,11 @@ namespace Besthand
         public int Face { get; set; }
         public int Value { get; set; }
 
-        //public Card(int suit, int value)
+        //public Card(int suit, int value, int face)
         //{
-        //    this.suit = suit;
-        //    this.value = value;
+        //    this.Suit = suit;
+        //    this.Value = value;
+        //    this.Face = face;
         //}
     }
 
@@ -35,10 +37,14 @@ namespace Besthand
         {
             for (var suitNumber = 0; suitNumber < 4; suitNumber++)
             {
-                for (var valueNumber = 1; valueNumber < 14; valueNumber++)
+                for (var valueNumber = 2; valueNumber < 15; valueNumber++)
                 {
                     DeckList.Add(new Card() {Suit = suitNumber, Face = valueNumber });
-                    if (valueNumber <= 9)
+                    if (valueNumber == 14)
+                    {
+                        DeckList[DeckList.Count - 1].Value = 11;
+                    }
+                    else if (valueNumber <= 9)
                     {
                         DeckList[DeckList.Count - 1].Value = valueNumber;
                     }
@@ -62,6 +68,8 @@ namespace Besthand
                 DeckList[n] = card;
             }
         }
+
+        //public List<Card> DrawHand(Random rand, int numberOfCards)
         public List<Card> DrawHand(int numberOfCards)
         {
             List<Card> hand = new List<Card>();
@@ -80,7 +88,7 @@ namespace Besthand
                 }
                 else
                 {
-                    continue;
+                    Console.WriteLine("Deck is out of cards!");
                 }
             }
 
@@ -96,8 +104,17 @@ namespace Besthand
         {
             this.Score = 0;
         }
+
+        public void ScoreCalculator(List<Card> playerHand)
+        {
+            foreach (var item in playerHand)
+            {
+                this.Score += item.Value;
+            }
+        }
     }
-        class BestHandGame
+
+    class BestHandGame
     {
         Random rand;
         Player player1;
@@ -123,21 +140,43 @@ namespace Besthand
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
 
+            foreach (var item in player1Hand)
+            {
+                player1.Score += item.Value;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Player 1 Score: {0}", player1.Score);
+
             Console.WriteLine();
             foreach (var item in player2Hand)
             {
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
+            foreach (var item in player2Hand)
+            {
+                player2.Score += item.Value;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Player 2 Score: {0}", player2.Score);
+
         }
     }
+
 
     class Program
     {
         static void Main(string[] args)
         {
-            //Random rand = new Random();
-            //Deck deck = new Deck(rand);
-
+            BestHandGame game = new BestHandGame();
+            game.PlayBestHand();
+            //int i = 1;
+            //foreach (Card card in deck)
+            //{
+            //    Console.WriteLine("Card {0}: {1} of {2}. Value: {3}", i, card.Face, card.Suit, card.Value);
+            //    i++;
+            //}
             Console.ReadLine();
         }
     }
