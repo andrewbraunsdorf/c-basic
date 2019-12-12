@@ -114,11 +114,19 @@ namespace Besthand
 
         public void PlayBestHand()
         {
-            List<Card> player1Hand = firstDeck.DrawHand(52);
+            List<Card> player1Hand = firstDeck.DrawHand(8);
+            List<Card> player2Hand = firstDeck.DrawHand(8);
 
+            Console.WriteLine("Suit\t" + "Card\t" + "Value");
             foreach (var item in player1Hand)
             {
-                Console.WriteLine(item.Suit + " " + item.Value + " " + item.Face);
+                Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
+            }
+
+            Console.WriteLine();
+            foreach (var item in player2Hand)
+            {
+                Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
         }
     }
