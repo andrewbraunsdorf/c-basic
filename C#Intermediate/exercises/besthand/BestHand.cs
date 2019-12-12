@@ -181,16 +181,18 @@ namespace Besthand
 
             //Calculate Scores
             // Royal cards
+            Console.WriteLine();
             int player1RoyalCards = 0;
             foreach (var item in player1Hand)
             {
-                
-                if (item.Value >= 10)
+
+                if (item.Face >= 10)
                     player1RoyalCards++;
 
                 if (player1RoyalCards >= 2)
                 {
-                    player1.Score += player1RoyalCards - 1;
+                    //player1.Score += player1RoyalCards - 1;
+                    player1.Score += player1RoyalCards;
                 }
                 else
                 {
@@ -198,20 +200,44 @@ namespace Besthand
                 }
             }
             int player2RoyalCards = 0;
-            foreach (var item in player2Hand)
+            foreach (var item2 in player2Hand)
             {
-                if (item.Face >= 10)
+                if (item2.Face >= 10)
                     player2RoyalCards++;
 
                 if (player2RoyalCards >= 2)
                 {
-                    player1.Score += player2RoyalCards - 1;
+                    player2.Score += player2RoyalCards - 1;
                 }
                 else
                 {
                     continue;
                 }
             }
+
+            //// Matches
+            //int player1Matches = 0;
+            //for (int i = 0; i < player1Hand.Count; i++)
+            //{
+            //    for (int j = i + 1; j < player1Hand.Count; j++)
+            //    {
+            //        if (j < player1Hand.Count && player1Hand[i].Face == player1Hand[j].Face)
+            //        {
+            //            player1Matches += 1;
+            //            player1Hand.RemoveAt(j);
+            //            continue;
+            //        }
+            //        else if (j < player2Hand.Count && player2Hand[i].Face == player2Hand[j].Face)
+            //        {
+            //            player2.Score += 1;
+
+            //            player2Hand.RemoveAt(j);
+            //            continue;
+            //        }
+            //        else
+            //            continue;
+            //    }
+            //}
 
             // reprinting values to see post removal
             Console.WriteLine("Suit\t" + "Card\t" + "Value");
@@ -224,6 +250,7 @@ namespace Besthand
 
             Console.WriteLine();
             Console.WriteLine("Player 1 Score: {0}", player1.Score);
+            //Console.WriteLine("Player 1 Matches: {0}", player1Matches);
 
             Console.WriteLine();
             foreach (var item in player2Hand)
