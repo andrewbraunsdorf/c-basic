@@ -230,6 +230,23 @@ namespace Besthand
 
             player1.Score += (player1Matches *2);
 
+
+
+            
+            //// Straights
+            // Ordered cards by Face Value
+            List<Card> player1Straights = player1Hand.OrderBy(o => o.Face).ToList();
+            Console.WriteLine();
+
+            foreach (var item in player1Straights)
+            {
+                Console.WriteLine(item.Face);
+            }
+            Console.WriteLine();
+
+
+
+
             // reprinting values to see post removal
             Console.WriteLine("Suit\t" + "Card\t" + "Value");
             foreach (var item in player1Hand)
