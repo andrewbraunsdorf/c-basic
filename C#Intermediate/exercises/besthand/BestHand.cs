@@ -235,8 +235,34 @@ namespace Besthand
             
             //// Straights
             // Ordered cards by Face Value
-            List<Card> player1Straights = player1Hand.OrderBy(o => o.Face).ToList();
-            Console.WriteLine();
+            List<Card> player1Straights = player1Hand.OrderBy(n => n.Face).ToList();
+
+            int straightScorePlayer1 = 0;
+            int counterForStraights = 0;
+            for (int i = 1; i < player1Straights.Count; i++)
+            {
+                for (int j = i + 1; j < 14; j++)
+                {
+                    if (player1Straights[i].Face != 0)
+                    {
+                        counterForStraights++;
+
+                    }
+                    else
+                    {
+                        if (counterForStraights > 2)
+                        {
+                            while (counterForStraights > 3)
+                            {
+                                straightScorePlayer1 += 3;
+                                counterForStraights--;
+                            }
+                        }
+
+                        counterForStraights = 0;
+                    }
+                }
+            }
 
             foreach (var item in player1Straights)
             {
