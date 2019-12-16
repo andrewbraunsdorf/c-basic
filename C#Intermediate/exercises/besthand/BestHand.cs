@@ -264,7 +264,16 @@ namespace Besthand
                 }
             }
 
+            Console.WriteLine("Player 1 Cards in order");
             foreach (var item in player1Straights)
+            {
+                Console.WriteLine(item.Face);
+            }
+            Console.WriteLine();
+
+            List<Card> player2Straights = player2Hand.OrderBy(n => n.Face).ToList();
+            Console.WriteLine("Player 2 Cards in order");
+            foreach (var item in player2Straights)
             {
                 Console.WriteLine(item.Face);
             }
