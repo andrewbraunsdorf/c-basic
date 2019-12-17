@@ -34,11 +34,6 @@ namespace Besthand
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
 
-            //foreach (var item in player1Hand)
-            //{
-            //    player1.Score += item.Value;
-            //}
-
             Console.WriteLine();
             Console.WriteLine("Player 1 Score: {0}", player1.Score);
 
@@ -47,14 +42,8 @@ namespace Besthand
             {
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
-            //foreach (var item in player2Hand)
-            //{
-            //    player2.Score += item.Value;
-            //}
-
             Console.WriteLine();
             Console.WriteLine("Player 2 Score: {0}", player2.Score);
-
 
             // Remove Facecards if in both hands
             for (var counterPlayer1Hand = 0; counterPlayer1Hand < player1Hand.Count; counterPlayer1Hand++)
@@ -84,7 +73,6 @@ namespace Besthand
             }
             if (player1RoyalCards >= 2)
             {
-                //player1.Score += player1RoyalCards - 1;
                 player1.Score += (player1RoyalCards - 1) * 5;
             }
             int player2RoyalCards = 0;
@@ -123,9 +111,6 @@ namespace Besthand
 
             player1.Score += (player1Matches *2);
 
-
-
-            
             //// Straights
             // Ordered cards by Face Value
             List<Card> player1Straights = player1Hand.OrderBy(n => n.Face).ToList();
@@ -172,17 +157,12 @@ namespace Besthand
             }
             Console.WriteLine();
 
-
-
-
             // reprinting values to see post removal
             Console.WriteLine("Suit\t" + "Card\t" + "Value");
             foreach (var item in player1Hand)
             {
                 Console.WriteLine(item.Suit + "\t" + item.Face + "\t" + item.Value);
             }
-
-            
 
             Console.WriteLine();
             Console.WriteLine("Player 1 Score: {0}", player1.Score);
