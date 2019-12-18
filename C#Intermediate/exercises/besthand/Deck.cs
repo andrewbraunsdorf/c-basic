@@ -1,4 +1,9 @@
-class Deck
+using System;
+using System.Collections.Generic;
+
+namespace Besthand
+{
+    class Deck
     {
         public List<Card> DeckList;
 
@@ -54,7 +59,11 @@ class Deck
             {
                 //int nextCardValue = DeckList[DeckList.Count - 1].Value;
                 //int nextCard = DeckList[DeckList.Count - 1].Value;
-                var nextIndex = DeckList[DeckList.Count - 1];
+
+                // Top of deck
+                var nextIndex = DeckList[0];
+
+                //var nextIndex = DeckList[DeckList.Count - 1];
                 if (nextIndex.Value != 0)
                 {
                     //hand.Add(new Card( DeckList[DeckList.Count - 1].Value, DeckList[DeckList.Count - 1].Suit, DeckList[DeckList.Count - 1].Face));
@@ -71,3 +80,4 @@ class Deck
             return hand;
         }
     }
+}
