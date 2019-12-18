@@ -74,6 +74,7 @@ namespace Besthand
                 else
                 {
                     Console.WriteLine("Deck is out of cards!");
+                    return hand;
                 }
             }
 
