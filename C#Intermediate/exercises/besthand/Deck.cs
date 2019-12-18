@@ -50,23 +50,18 @@ namespace Besthand
             }
         }
 
-        //public List<Card> DrawHand(Random rand, int numberOfCards)
         public List<Card> DrawHand(int numberOfCards)
         {
             List<Card> hand = new List<Card>();
             int counter = 0;
             while (counter < numberOfCards)
             {
-                //int nextCardValue = DeckList[DeckList.Count - 1].Value;
-                //int nextCard = DeckList[DeckList.Count - 1].Value;
 
                 // Top of deck
                 var nextIndex = DeckList[0];
-
-                //var nextIndex = DeckList[DeckList.Count - 1];
                 if (nextIndex.Value != 0)
                 {
-                    //hand.Add(new Card( DeckList[DeckList.Count - 1].Value, DeckList[DeckList.Count - 1].Suit, DeckList[DeckList.Count - 1].Face));
+                    
                     hand.Add(DeckList[DeckList.Count - 1]);
                     DeckList.RemoveAt(DeckList.Count - 1);
                     counter++;
