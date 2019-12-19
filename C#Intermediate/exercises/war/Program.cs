@@ -25,6 +25,13 @@ namespace War
     {
         public string Name { get; set; }
         public Queue<Card> Deck { get; set; }
+
+                public Player() { }
+
+        public Player(string name)
+        {
+            Name = name;
+        }
     }
 
     // implement a deck of cards using the built-in Queue<> object
@@ -149,6 +156,63 @@ namespace War
             }
             return false;
         }
+        public void PlayTurn()
+        {
+            Queue<Card> pool = new Queue<Card>();
+
+            var player1card = Player1.Deck.Dequeue();
+            var player2card = Player2.Deck.Dequeue();
+
+            pool.Enqueue(player1card);
+            pool.Enqueue(player2card);
+
+            Console.WriteLine(Player1.Name + " plays " + player1card.DisplayName + ", " + Player2.Name + " plays " + player2card.DisplayName);
+
+            while (player1card.Value == player2card.Value)
+            {
+                Console.WriteLine("WAR!");
+                if (Player1.Deck.Count < 4)
+                {
+                    Player1.Deck.Clear();
+                    return;
+                }
+                if (Player2.Deck.Count < 4)
+                {
+                    Player2.Deck.Clear();
+                    return;
+                }
+
+                pool.Enqueue(Player1.Deck.Dequeue());
+                pool.Enqueue(Player1.Deck.Dequeue());
+                pool.Enqueue(Player1.Deck.Dequeue());
+                pool.Enqueue(Player2.Deck.Dequeue());
+                pool.Enqueue(Player2.Deck.Dequeue());
+                pool.Enqueue(Player2.Deck.Dequeue());
+
+                player1card = Player1.Deck.Dequeue();
+                player2card = Player2.Deck.Dequeue();
+
+                pool.Enqueue(player1card);
+                pool.Enqueue(player2card);
+
+                Console.WriteLine(Player1.Name + " plays " + player1card.DisplayName + ", " + Player2.Name + " plays " + player2card.DisplayName);
+            }
+
+            if (player1card.Value < player2card.Value)
+            {
+                Player2.Deck.Enqueue(pool);
+                Console.WriteLine(Player2.Name + " takes the hand!");
+            }
+            else
+            {
+                Player1.Deck.Enqueue(pool);
+                Console.WriteLine(Player1.Name + " takes the hand!");
+            }
+
+            TurnCount++;
+        }
+
+        
     }
 
 
