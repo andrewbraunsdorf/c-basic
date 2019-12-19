@@ -117,6 +117,7 @@ namespace War
     {
         private Player Player1;
         private Player Player2;
+        private int TurnCount;
 
         public Game(string player1name, string player2name)
         {
