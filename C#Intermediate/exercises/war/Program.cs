@@ -155,9 +155,11 @@ namespace War
             Player1 = new Player(player1name);
             Player2 = new Player(player2name);
 
-            var cards = DeckCreator.CreateCards(); //Returns a shuffled set of cards
+            //Returns a shuffled set of cards
+            var cards = DeckCreator.CreateCards(); 
 
-            var deck = Player1.Deal(cards); //Returns Player2's deck.  Player1 keeps his.
+            //Returns Player2's deck.  Player1 keeps his.
+            var deck = Player1.Deal(cards); 
             Player2.Deck = deck;
         }
 
