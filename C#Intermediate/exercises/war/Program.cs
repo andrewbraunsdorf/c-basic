@@ -52,6 +52,8 @@ namespace War
 
                 counter++;
             }
+            Deck = player1cards;
+            return player2cards;
         }
 
     }
