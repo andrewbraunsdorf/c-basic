@@ -263,6 +263,11 @@ namespace War
                     finiteGameCount++;
                 }
             }
+
+            double avgTurn = (double)totalTurnCount / (double)finiteGameCount;
+
+            Console.WriteLine(finiteGameCount + " finite games with an average of " + Math.Round(avgTurn, 2) + " turns per game.");
+
             Console.ReadLine();
         }
     }
