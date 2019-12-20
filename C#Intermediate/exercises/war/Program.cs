@@ -148,7 +148,7 @@ namespace War
     {
         private Player Player1;
         private Player Player2;
-        private int TurnCount;
+        public int TurnCount;
 
         public Game(string player1name, string player2name)
         {
@@ -246,8 +246,23 @@ namespace War
     {
         static void Main(string[] args)
         {
-            //DeckCreator deckCreator = new DeckCreator();
-            //deckCreator.CreateCards();
+            int totalTurnCount = 0;
+            int finiteGameCount = 0;
+            for (int i = 0; i < 1000; i++)
+            {
+                //Create game
+                Game game = new Game("John", "Smith");
+                while (!game.IsEndOfGame())
+                {
+                    game.PlayTurn();
+                }
+
+                if (game.TurnCount < 1000)
+                {
+                    totalTurnCount += game.TurnCount;
+                    finiteGameCount++;
+                }
+            }
             Console.ReadLine();
         }
     }
