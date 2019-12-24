@@ -69,7 +69,7 @@ namespace HIorLow
                     }
                 }
                 Console.WriteLine("You guessed wrong. Your score was: " + score);
-
+                Console.ReadLine();
             }
             }
         }
