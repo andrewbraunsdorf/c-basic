@@ -55,7 +55,18 @@ namespace HIorLow
                     Console.WriteLine(nextCard);
 
                     Console.WriteLine("Is the next card going to be higher or lower than the current card: " + currentCard);
+                    
+                    var guess = Console.ReadLine();
 
+                    if (nextCard > currentCard && guess.ToUpper() == "HI" || nextCard < currentCard && guess.ToUpper() == "LOW")
+                    {
+                        score++;
+                        currentCard = nextCard;
+                    }
+                    else
+                    {
+                        guessStatus = false;
+                    }
                 }
                 Console.WriteLine("Sorry you guessed wrong, please play again. Your score was: " + score);
 
