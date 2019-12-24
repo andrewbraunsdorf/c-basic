@@ -68,7 +68,7 @@ namespace HIorLow
                         guessStatus = false;
                     }
                 }
-                Console.WriteLine("Sorry you guessed wrong, please play again. Your score was: " + score);
+                Console.WriteLine("You guessed wrong. Your score was: " + score);
 
             }
             }
